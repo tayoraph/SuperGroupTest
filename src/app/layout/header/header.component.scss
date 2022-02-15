@@ -1,9 +1,9 @@
 a {
     text-decoration: none;
-    color: white;
+    color: rgb(226, 10, 10);
 }
 a:hover, a:active{
-    color: lightgray;
+    color: rgb(184, 3, 3);
 }
 .navigation-items{
     list-style-type: none;
@@ -19,8 +19,8 @@ mat-toolbar{
     }
 }
 mat-toolbar {
-    background: #004a9f;
-    color: white;
+    background: #fffefe;
+    color: rgb(184, 3, 3);
 }
 
 .header{

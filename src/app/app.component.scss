@@ -21,10 +21,15 @@ mat-sidenav {
     justify-content: center;
     align-items: center;
 
-    font-size: 2rem;
-    color: lightgray;
+    font-size: 1rem;
+    color: rgb(184, 3, 3);
+    text-align: center;
 }
 
 mat-sidenav-container {
     height: calc(100vh - 65px);
+}
+
+.result{
+    font-weight: bold;
 }

@@ -1,4 +1,7 @@
-<h1> Choose lenght  and enter value</h1>
+<app-logo></app-logo>
+
+<h1> Length Converter</h1>
+
 
 <div>
   <mat-form-field>
@@ -9,6 +12,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  &nbsp;
+  &nbsp;
+  &nbsp;
   <mat-form-field >
     <mat-label>length</mat-label>
     <input matInput  (keyup)="convertLength('1')" [(ngModel)]="inputValueOne">
@@ -24,7 +30,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-
+  &nbsp;
+  &nbsp;
+  &nbsp;
   <mat-form-field >
     <mat-label>length</mat-label>
     <input matInput  (keyup)="convertLength('2')" [(ngModel)]="inputValueTwo">
@@ -34,7 +42,7 @@
 
 <ng-container *ngIf="lengthVal">
  
-<mat-grid-list cols="4" >
+<mat-grid-list cols="6" class="result">
   <mat-grid-tile>{{inputValueOne}} {{lenghtDataOne}} </mat-grid-tile> =
   <mat-grid-tile>{{inputValueTwo}} {{lenghtDataTwo}} </mat-grid-tile>
   </mat-grid-list>

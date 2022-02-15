@@ -2,3 +2,11 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.logo{
+    width: 60%;
+
+}
+.logoContainer{
+    text-align: center !important;
+    line-height: 600%;
+}
