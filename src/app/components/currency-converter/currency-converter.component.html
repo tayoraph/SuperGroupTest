@@ -1,9 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <h1> Choose currency  and enter value</h1>
 <div>
   <mat-form-field>
     <mat-label>From </mat-label>
-    <mat-select [(ngModel)]="currency1" name="currency1">
+    <mat-select [(ngModel)]="currencyOne" name="currencyOne" (ngModelChange)="currencyChange( '1')">
       <mat-option *ngFor='let i of currencies' [value]="i">
         {{i}}
       </mat-option>
@@ -13,7 +13,7 @@
 &nbsp;
 &nbsp;
 &nbsp;
-<mat-form-field [floatLabel]="'always'">
+<mat-form-field >
   <mat-label>Amount</mat-label>
   <input matInput (keyup)="convertCurrency('1')" [(ngModel)]="inputValueOne">
 </mat-form-field>
@@ -23,8 +23,8 @@
 
   <mat-form-field>
     <mat-label>To </mat-label>
-    <mat-select [(ngModel)]="currency2" name="currency2">
-      <mat-option *ngFor='let i of currencies' [value]="i">
+    <mat-select [(ngModel)]="currencyTwo" name="currencyTwo" (ngModelChange)="currencyChange('2')">
+      <mat-option *ngFor='let i of currencies' [value]="i"  >
         {{i}}
       </mat-option>
     </mat-select>
@@ -32,13 +32,21 @@
   &nbsp;
   &nbsp;
   &nbsp;
-<mat-form-field [floatLabel]="'always'">
+<mat-form-field >
   <mat-label>Amount</mat-label>
   <input matInput  (keyup)="convertCurrency('2')" [(ngModel)]="inputValueTwo">
 </mat-form-field>
  
 </div>
 
+
+<ng-container *ngIf="currencyVal">
+ 
+  <mat-grid-list cols="4" >
+    <mat-grid-tile>{{inputValueOne}} {{currencyOne}} </mat-grid-tile> =
+    <mat-grid-tile>{{inputValueTwo}} {{currencyTwo}} </mat-grid-tile>
+    </mat-grid-list>
+  </ng-container>
 <!-- <app-historical-units></app-historical-units> -->
 
 

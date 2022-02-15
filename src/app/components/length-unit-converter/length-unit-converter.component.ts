@@ -46,4 +46,8 @@ export class LengthUnitConverterComponent implements OnInit {
         : (this.inputValueTwo = this.lengthVal);
     }
   }
+
+  currencyChange( value:any){
+    value== "1"? this.inputValueOne = "" : this.inputValueTwo= "";
+  }
 }
