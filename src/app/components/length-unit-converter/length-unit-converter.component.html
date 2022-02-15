@@ -1,0 +1,21 @@
+
+<label> From </label>
+  <select class='form-control'  [(ngModel)]="lenghtDataOne" name="lenghtDataOne">
+      <option  *ngFor='let i of lengthArray' [value]="i">{{i}}</option>
+  </select> 
+
+  <mat-form-field [floatLabel]="'always'">
+    <mat-label>length</mat-label>
+    <input matInput  (keyup)="convertLength('1')" [(ngModel)]="inputValueOne">
+  </mat-form-field>
+
+
+  <label> To </label>
+  <select class='form-control'  [(ngModel)]="lenghtDataTwo" name="lenghtDataTwo">
+      <option  *ngFor='let i of lengthArray' [value]="i">{{i}}</option>
+  </select> 
+
+  <mat-form-field [floatLabel]="'always'">
+    <mat-label>length</mat-label>
+    <input matInput  (keyup)="convertLength('2')" [(ngModel)]="inputValueTwo">
+  </mat-form-field>

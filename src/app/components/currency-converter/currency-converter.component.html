@@ -1,0 +1,63 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1> Choose currency  and enter value</h1>
+<div>
+  <mat-form-field>
+    <mat-label>From </mat-label>
+    <mat-select [(ngModel)]="currency1" name="currency1">
+      <mat-option *ngFor='let i of currencies' [value]="i">
+        {{i}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+&nbsp;
+&nbsp;
+&nbsp;
+<mat-form-field [floatLabel]="'always'">
+  <mat-label>Amount</mat-label>
+  <input matInput (keyup)="convertCurrency('1')" [(ngModel)]="inputValueOne">
+</mat-form-field>
+</div>
+
+<div>
+
+  <mat-form-field>
+    <mat-label>To </mat-label>
+    <mat-select [(ngModel)]="currency2" name="currency2">
+      <mat-option *ngFor='let i of currencies' [value]="i">
+        {{i}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+<mat-form-field [floatLabel]="'always'">
+  <mat-label>Amount</mat-label>
+  <input matInput  (keyup)="convertCurrency('2')" [(ngModel)]="inputValueTwo">
+</mat-form-field>
+  <!-- <input matInput placeholder="Nickname"  (keyup)="convertCurrency('2')" [(ngModel)]="inputValueTwo"> -->
+
+</div>
+
+
+
+<ng-container *ngIf="tableDataSource.length>0">
+  <table mat-table [dataSource]="tableDataSource | keyvalue:orderByKey" class="mat-elevation-z8">
+    <ng-container matColumnDef="key">
+      <th mat-header-cell *matHeaderCellDef> Key </th>
+      <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef> Value </th>
+      <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</ng-container>
+
+
+
