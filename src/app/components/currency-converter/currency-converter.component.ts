@@ -30,9 +30,7 @@ export class CurrencyConverterComponent {
 
   public displayedColumns : string[] = ["key", "value"];
   public tableDataSource! : HistoricalRates[];
-  public orderByKey(a:any, b:any) {
-    return a.key;
-  }
+
 
   constructor(public currencyConverterService: CurrencyConverterService,
     public currencyConverterPipe : CurrencyConverterPipe) {

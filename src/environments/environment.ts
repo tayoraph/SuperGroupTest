@@ -10,7 +10,6 @@ export const environment = {
   accessKey : "?access_key=9f7a1903a35c38719a27a941e9457ca2",
   baseCurrency : "&base=",
   targetCurrency : "&base = "
-  // & symbols = USD,AUD,CAD,PLN,MXN
 };
 /*
  * For easier debugging in development mode, you can import the following file

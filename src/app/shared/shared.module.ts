@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -20,10 +19,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { MatMenuModule } from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+// import {MatSidenavContainer} from '@angular/material/sidenav';
+import { HistoricalUnitsComponent } from './component/historical-units/historical-units.component';
 
 @NgModule({
   declarations: [
-    
+    HistoricalUnitsComponent
   ],
   imports: [
     FormsModule,
@@ -50,7 +51,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatDividerModule,
     MatToolbarModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    // MatSidenavContainer
     
   ],
   exports: [
@@ -68,7 +70,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         MatToolbarModule,
         MatMenuModule,
         MatMenuModule,
-        MatSidenavModule
+        MatSidenavModule,
+        HistoricalUnitsComponent,
+        // MatSidenavContainer
   ],providers: [
   ],
 })

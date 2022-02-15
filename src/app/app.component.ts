@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'CurCal';
+  title = 'Super Group';
+
+  toggle(event: any){
+    console.log(event)
+    // run your action here 
+    // e.g call a service to edit or delete or add to a list
+    // console.log(newItem);
+  }
 }

@@ -1,33 +1,6 @@
-<mat-toolbar>
 
-    <!-- Responsive side navigation -->
-    <span [routerLink]="'convert/currency'">Currency</span> &nbsp;
-    <span [routerLink]="'convert/length'">Length</span>
-    </mat-toolbar>
-    
+<app-header (sidenavToggle)="toggle($event)"></app-header>
     <mat-sidenav-container>
-        <mat-sidenav class="mat-elevation-z8">
-            <button mat-button class="menu-button">
-                <mat-icon>home</mat-icon>
-                <span>Currency</span>
-            </button>
-            <button mat-button class="menu-button">
-                <mat-icon>person</mat-icon>
-                <span>Length</span>
-            </button>
-            <!-- <button mat-button class="menu-button">
-                <mat-icon>info</mat-icon>
-                <span>About</span>
-            </button>
-    
-            <mat-divider></mat-divider>
-    
-            <button mat-button class="menu-button">
-                <mat-icon>help</mat-icon>
-                <span>Help</span>
-            </button> -->
-    
-        </mat-sidenav>
         <mat-sidenav-content>
             <div class="content mat-elevation-z8">
                 <router-outlet></router-outlet>

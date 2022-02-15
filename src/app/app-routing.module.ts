@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'convert/currency',
+    redirectTo: 'convert/length',
     pathMatch: 'full',
   }, {
     path: 'convert',
