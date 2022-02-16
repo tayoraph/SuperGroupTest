@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HistoricalRates } from '../../models/rate.model';
 
 @Component({
@@ -12,6 +12,7 @@ export class HistoricalUnitsComponent implements OnInit {
   public orderByKey(a:any, b:any) {
     return a.key;
   }
+  @Input() HistoricalUnitsArray : Array<string> =[];
   constructor() { }
 
   ngOnInit(): void {

@@ -10,7 +10,7 @@ import { LengthUnitConverterComponent } from './length-unit-converter/length-uni
 import { CurrencyConverterPipe } from '../pipes/currency-converter.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
-import { LogoComponent } from './logo/logo.component';
+import { LogoComponent } from '../shared/component/logo/logo.component';
 
 
 

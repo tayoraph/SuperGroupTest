@@ -26,7 +26,7 @@ export class CurrencyConverterComponent {
   constructor(public currencyConverterService: CurrencyConverterService,
     public currencyConverterPipe : CurrencyConverterPipe) {
     // this.getHistoricalView();
-    // this.getAllRates();
+    this.getAllRates();
     
     // this.currencyVal = {};
     this.HistoricalUnitsArray = [];

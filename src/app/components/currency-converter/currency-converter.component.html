@@ -1,54 +1,65 @@
 <app-logo></app-logo>
-<h1> Currency Converter</h1>
+<h1>Currency Converter</h1>
 <div>
   <mat-form-field>
     <mat-label>From </mat-label>
-    <mat-select [(ngModel)]="currencyOne" name="currencyOne" (ngModelChange)="currencyChange( '1')">
-      <mat-option *ngFor='let i of currencies' [value]="i">
-        {{i}}
+    <mat-select
+      [(ngModel)]="currencyOne"
+      name="currencyOne"
+      (ngModelChange)="currencyChange('1')"
+    >
+      <mat-option *ngFor="let i of currencies" [value]="i">
+        {{ i }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-&nbsp;
-&nbsp;
-&nbsp;
-<mat-form-field >
-  <mat-label>Amount</mat-label>
-  <input matInput (keyup)="convertCurrency('1')" [(ngModel)]="inputValueOne">
-</mat-form-field>
+  &nbsp; &nbsp; &nbsp;
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      (keyup)="convertCurrency('1')"
+      [(ngModel)]="inputValueOne"
+    />
+  </mat-form-field>
 </div>
 
 <div>
-
   <mat-form-field>
     <mat-label>To </mat-label>
-    <mat-select [(ngModel)]="currencyTwo" name="currencyTwo" (ngModelChange)="currencyChange('2')">
-      <mat-option *ngFor='let i of currencies' [value]="i"  >
-        {{i}}
+    <mat-select
+      [(ngModel)]="currencyTwo"
+      name="currencyTwo"
+      (ngModelChange)="currencyChange('2')"
+    >
+      <mat-option *ngFor="let i of currencies" [value]="i">
+        {{ i }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  &nbsp;
-  &nbsp;
-  &nbsp;
-<mat-form-field >
-  <mat-label>Amount</mat-label>
-  <input matInput  (keyup)="convertCurrency('2')" [(ngModel)]="inputValueTwo">
-</mat-form-field>
- 
+  &nbsp; &nbsp; &nbsp;
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      (keyup)="convertCurrency('2')"
+      [(ngModel)]="inputValueTwo"
+    />
+  </mat-form-field>
 </div>
 
-
 <ng-container *ngIf="currencyVal">
- 
-  <mat-grid-list cols="4" >
-    <mat-grid-tile>{{inputValueOne}} {{currencyOne}} </mat-grid-tile> =
-    <mat-grid-tile>{{inputValueTwo}} {{currencyTwo}} </mat-grid-tile>
-    </mat-grid-list>
-  </ng-container>
-<!-- <app-historical-units></app-historical-units> -->
+  <mat-grid-list cols="4">
+    <mat-grid-tile>{{ inputValueOne }} {{ currencyOne }} </mat-grid-tile> =
+    <mat-grid-tile>{{ inputValueTwo }} {{ currencyTwo }} </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>
 
 
-
-
+<!-- Historical trend -->
+<ng-container *ngIf="">
+  <app-historical-units
+    [HistoricalUnitsArray]="HistoricalUnitsArray"
+  ></app-historical-units>
+</ng-container>
