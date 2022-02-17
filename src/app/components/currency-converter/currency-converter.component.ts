@@ -23,10 +23,11 @@ export class CurrencyConverterComponent {
   public displayedColumns : string[] = ["key", "value"];
   public tableDataSource! : HistoricalRates[];
   @ViewChild(HistoricalUnitsComponent) updateHistoricalUnit! :  HistoricalUnitsComponent;
+  public disabled : boolean = true;
 
   constructor(public currencyConverterService: CurrencyConverterService,
     public currencyConverterPipe : CurrencyConverterPipe) {
-    // this.getAllRates(); 
+    this.getAllRates(); 
     this.historicalUnitsArray = [];
     this.tableDataSource = [];
   }
@@ -64,8 +65,6 @@ export class CurrencyConverterComponent {
       
      value !== '1' ? this.inputValueOne = this.currencyVal: this.inputValueTwo = this.currencyVal;
      this.updateHistoricalUnit.getHistoricalView()
-      // console.log(this.currencyVal);
-      // this.getHistoricalView();
     }
   }
 
@@ -79,7 +78,13 @@ export class CurrencyConverterComponent {
   }
 
 
+  // currencyChange( value:any){
+  //   value== "1"? this.inputValueOne = "" : this.inputValueTwo= "";
+  // }
   currencyChange( value:any){
-    value== "1"? this.inputValueOne = "" : this.inputValueTwo= "";
+    this.inputValueOne = "";
+    this.inputValueTwo= "";
+    this.currencyOne != undefined && this.currencyTwo != undefined ? this.disabled = false : true;
+    this.currencyVal = "";
   }
 }

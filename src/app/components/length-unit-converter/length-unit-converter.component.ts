@@ -15,12 +15,12 @@ import {
 export class LengthUnitConverterComponent implements OnInit {
   public lengthArray = lengthConverterArray;
   public lengthRates = lengthConverter;
-  public lenghtDataOne: string = '';
-  public lenghtDataTwo: string = '';
+  public lenghtDataOne: string | undefined;
+  public lenghtDataTwo: string  | undefined;
   public inputValueOne: string = '';
   public inputValueTwo: string = '';
   public lengthVal: any = '';
-
+  public disabled : boolean = true;
   constructor(
     public currencyConverterPipe : CurrencyConverterPipe,
     public currencyConverterService: CurrencyConverterService
@@ -48,6 +48,9 @@ export class LengthUnitConverterComponent implements OnInit {
   }
 
   currencyChange( value:any){
-    value== "1"? this.inputValueOne = "" : this.inputValueTwo= "";
+    this.inputValueOne = "";
+    this.inputValueTwo= "";
+    this.lenghtDataOne != undefined && this.lenghtDataTwo != undefined ? this.disabled = false : true;
+    this.lengthVal = "";
   }
 }

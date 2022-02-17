@@ -22,6 +22,7 @@
       (keyup)="convertCurrency('1')"
       [(ngModel)]="inputValueOne"
       type="number"
+      [disabled]="disabled"
     />
   </mat-form-field>
 </div>
@@ -47,14 +48,15 @@
       (keyup)="convertCurrency('2')"
       [(ngModel)]="inputValueTwo"
       type="number"
+      [disabled]="disabled"
     />
   </mat-form-field>
 </div>
-<ng-container *ngIf="currencyVal" class="result">
-<p>{{ inputValueOne }} {{ currencyOne }} =  {{ inputValueTwo }} {{ currencyTwo }}</p>
+<ng-container *ngIf="currencyVal">
+  <p class="resultData" ><span class="result"> Result : </span>{{ inputValueOne }} {{ currencyOne }} =  {{ inputValueTwo }} {{ currencyTwo }}</p>
 </ng-container>
 
-
+<br>
 <!-- Historical trend -->
 <ng-container >
   <app-historical-units

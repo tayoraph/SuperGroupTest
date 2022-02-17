@@ -30,7 +30,7 @@ export class CurrencyConverterPipe implements PipeTransform {
     this.selected = this.rates[Object.keys(this.rates)[this.selectedBaseIndex]];
     let selected2 =
       this.rates[Object.keys(this.rates)[this.selectedTargetIndex]];
-    let resp = ((selected2 / this.selected) * value).toFixed(4);
+    let resp = ((selected2 / this.selected) * value).toFixed(2);
     return resp;
   }
 }

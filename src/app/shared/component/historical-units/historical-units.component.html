@@ -1,8 +1,8 @@
-<p>historical-units works!</p>
 
+<!-- <h3 *ngIf="totalLength >0">Historical Trend View</h3> -->
 
   <section>
-<ng-container>
+<ng-container *ngIf="totalLength >0">
     <table mat-table [dataSource]="tableDataSource | keyvalue:orderByKey" >
    
       <ng-container matColumnDef="sn">
@@ -23,7 +23,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <mat-paginator [length]="totalLength"
-              [pageSize]="1"
+              [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
            
               aria-label="Select page">
