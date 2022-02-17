@@ -4,11 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'currencyConverter',
 })
 export class CurrencyConverterPipe implements PipeTransform {
-  rates!: any;
-  rateArray: Array<string>;
-  selectedBaseIndex: number;
-  selectedTargetIndex: number;
-  selected: number;
+  public rates!: any;
+  public rateArray: Array<string>;
+  public selectedBaseIndex: number;
+  public selectedTargetIndex: number;
+  public selected: number;
   public selectedBase: number;
   public selectedTarget: number;
   constructor() {
@@ -30,7 +30,7 @@ export class CurrencyConverterPipe implements PipeTransform {
     this.selected = this.rates[Object.keys(this.rates)[this.selectedBaseIndex]];
     let selected2 =
       this.rates[Object.keys(this.rates)[this.selectedTargetIndex]];
-    let resp = ((selected2 / this.selected) * value).toFixed(2);
+    let resp = ((selected2 / this.selected) * value).toFixed(4);
     return resp;
   }
 }

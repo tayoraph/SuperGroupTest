@@ -21,6 +21,7 @@
       matInput
       (keyup)="convertCurrency('1')"
       [(ngModel)]="inputValueOne"
+      type="number"
     />
   </mat-form-field>
 </div>
@@ -45,21 +46,18 @@
       matInput
       (keyup)="convertCurrency('2')"
       [(ngModel)]="inputValueTwo"
+      type="number"
     />
   </mat-form-field>
 </div>
-
-<ng-container *ngIf="currencyVal">
-  <mat-grid-list cols="4">
-    <mat-grid-tile>{{ inputValueOne }} {{ currencyOne }} </mat-grid-tile> =
-    <mat-grid-tile>{{ inputValueTwo }} {{ currencyTwo }} </mat-grid-tile>
-  </mat-grid-list>
+<ng-container *ngIf="currencyVal" class="result">
+<p>{{ inputValueOne }} {{ currencyOne }} =  {{ inputValueTwo }} {{ currencyTwo }}</p>
 </ng-container>
 
 
 <!-- Historical trend -->
-<ng-container *ngIf="">
+<ng-container >
   <app-historical-units
-    [HistoricalUnitsArray]="HistoricalUnitsArray"
+    [historicalUnitsArray]="historicalUnitsArray"
   ></app-historical-units>
 </ng-container>

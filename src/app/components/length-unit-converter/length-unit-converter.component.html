@@ -17,7 +17,7 @@
   &nbsp;
   <mat-form-field >
     <mat-label>length</mat-label>
-    <input matInput  (keyup)="convertLength('1')" [(ngModel)]="inputValueOne">
+    <input matInput  type="number" (keyup)="convertLength('1')" [(ngModel)]="inputValueOne">
   </mat-form-field>
 </div>
 
@@ -35,15 +35,17 @@
   &nbsp;
   <mat-form-field >
     <mat-label>length</mat-label>
-    <input matInput  (keyup)="convertLength('2')" [(ngModel)]="inputValueTwo">
+    <input matInput  type="number" (keyup)="convertLength('2')" [(ngModel)]="inputValueTwo">
   </mat-form-field>
 </div>
   
-
+<ng-container *ngIf="lengthVal"  class="result">
+  <p class="result">{{ inputValueOne }} {{ lenghtDataOne }} =  {{ inputValueTwo }} {{ lenghtDataTwo }}</p>
+  </ng-container>
 <ng-container *ngIf="lengthVal">
  
-<mat-grid-list cols="6" class="result">
+<!-- <mat-grid-list cols="6" class="result">
   <mat-grid-tile>{{inputValueOne}} {{lenghtDataOne}} </mat-grid-tile> =
   <mat-grid-tile>{{inputValueTwo}} {{lenghtDataTwo}} </mat-grid-tile>
   </mat-grid-list>
-</ng-container>
+</ng-container> -->

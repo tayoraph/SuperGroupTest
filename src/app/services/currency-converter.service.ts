@@ -6,9 +6,7 @@ import { BaseHttpService } from './basehttp/baseHttp';
 })
 export class CurrencyConverterService {
 
-  constructor(public baseHttp : BaseHttpService) {
-  
-   }
+  constructor(public baseHttp : BaseHttpService) { }
 
    /**
    * 
@@ -24,8 +22,9 @@ export class CurrencyConverterService {
       * @todo get historical view
       */
 
-     getHistoricalView(symbols?:[]) {
-      let connect = environment.baseUrl +  environment.currentDate + environment.accessKey +"&symbols=USD,AUD,CAD,PLN,MXN";
+     getHistoricalView(historicalUnitsArray:Array<string>) {
+       console.log(historicalUnitsArray)
+      let connect = environment.baseUrl +  environment.currentDate + environment.accessKey +"&symbols="+historicalUnitsArray;
       return this.baseHttp.get(connect);
     }
     

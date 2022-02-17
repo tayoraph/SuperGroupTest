@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CurrencyConverterService } from 'src/app/services/currency-converter.service';
 import { HistoricalRates } from '../../models/rate.model';
 
 @Component({
@@ -7,15 +8,31 @@ import { HistoricalRates } from '../../models/rate.model';
   styleUrls: ['./historical-units.component.scss']
 })
 export class HistoricalUnitsComponent implements OnInit {
-  public displayedColumns : string[] = ["key", "value"];
+  public displayedColumns : string[] = ["sn","key", "value"];
   public tableDataSource! : HistoricalRates[];
   public orderByKey(a:any, b:any) {
     return a.key;
   }
-  @Input() HistoricalUnitsArray : Array<string> =[];
-  constructor() { }
+  public totalLength : number = 0
+  @Input() historicalUnitsArray : Array<string> =[];
+  constructor(public currencyConverterService: CurrencyConverterService) {
+    this.tableDataSource = [];
+    // this.getHistoricalView();
+   }
 
   ngOnInit(): void {
   }
+
+    /**
+   * @todo get historical view
+   */
+     getHistoricalView() {
+       debugger
+      this.currencyConverterService.getHistoricalView(this.historicalUnitsArray).subscribe((res: any) => {
+        this.tableDataSource = res.rates;
+        this.totalLength = Object.keys(this.tableDataSource).length
+      });
+    }
+  
 
 }

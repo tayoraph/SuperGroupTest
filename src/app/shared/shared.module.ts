@@ -21,6 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatSidenavContainer} from '@angular/material/sidenav';
 import { HistoricalUnitsComponent } from './component/historical-units/historical-units.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { HistoricalUnitsComponent } from './component/historical-units/historica
     MatToolbarModule,
     MatMenuModule,
     MatSidenavModule,
+    MatGridListModule,
+    MatButtonModule
     // MatSidenavContainer
     
   ],
@@ -72,7 +76,8 @@ import { HistoricalUnitsComponent } from './component/historical-units/historica
         MatMenuModule,
         MatSidenavModule,
         HistoricalUnitsComponent,
-        // MatSidenavContainer
+        MatGridListModule,
+        MatButtonModule
   ],providers: [
   ],
 })

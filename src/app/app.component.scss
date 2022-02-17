@@ -15,11 +15,10 @@ mat-sidenav {
     height: calc(100vh - 98px);
     border-radius: 10px;
     margin: 16px;
-    margin-left: 32px;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 
     font-size: 1rem;
     color: rgb(184, 3, 3);
@@ -32,4 +31,6 @@ mat-sidenav-container {
 
 .result{
     font-weight: bold;
+    color:black
+
 }

@@ -9,6 +9,9 @@ import { CurrencyConverterComponent } from './components/currency-converter/curr
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './layout/header/header.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,13 @@ import { HeaderComponent } from './layout/header/header.component';
     BrowserAnimationsModule,
     ComponentModule,
     SharedModule,
-    // MatSidenavContainer
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

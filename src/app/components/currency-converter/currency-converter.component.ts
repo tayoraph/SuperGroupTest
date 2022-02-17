@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CurrencyConverterPipe } from 'src/app/pipes/currency-converter.pipe';
 import { CurrencyConverterService } from 'src/app/services/currency-converter.service';
+import { HistoricalUnitsComponent } from 'src/app/shared/component/historical-units/historical-units.component';
 import { HistoricalRates, ratesModel } from 'src/app/shared/models/rate.model';
 
 @Component({
@@ -10,27 +11,28 @@ import { HistoricalRates, ratesModel } from 'src/app/shared/models/rate.model';
   providers: [CurrencyConverterPipe],
 })
 export class CurrencyConverterComponent {
-  currencyVal: any;
-  ratesFromFixer!: ratesModel;
+  public currencyVal: any;
+  public ratesFromFixer!: ratesModel;
   public inputValueOne!: string;
   public inputValueTwo!: string;
   public currencyOne!: string;
   public currencyTwo!: string;
   public currencies!: Array<string>;
-  public HistoricalUnitsArray!: Array<string>;
+  public historicalUnitsArray!: Array<string>;
 
   public displayedColumns : string[] = ["key", "value"];
   public tableDataSource! : HistoricalRates[];
-
+  @ViewChild(HistoricalUnitsComponent) updateHistoricalUnit! :  HistoricalUnitsComponent;
 
   constructor(public currencyConverterService: CurrencyConverterService,
     public currencyConverterPipe : CurrencyConverterPipe) {
-    // this.getHistoricalView();
-    this.getAllRates();
-    
-    // this.currencyVal = {};
-    this.HistoricalUnitsArray = [];
+    // this.getAllRates(); 
+    this.historicalUnitsArray = [];
     this.tableDataSource = [];
+  }
+
+  ngAfterViewInit(){
+    // this.updateHistoricalUnit.getHistoricalView();
   }
 
   getAllRates() {
@@ -58,33 +60,24 @@ export class CurrencyConverterComponent {
       this.currencyVal = this.currencyConverterPipe.transform(
         inputValue,
         arg
-      );
+      );2
       
      value !== '1' ? this.inputValueOne = this.currencyVal: this.inputValueTwo = this.currencyVal;
-
+     this.updateHistoricalUnit.getHistoricalView()
       // console.log(this.currencyVal);
       // this.getHistoricalView();
     }
   }
 
   saveUnitHistory(targetCurrency: string, baseCurrency: string) {
-    !this.HistoricalUnitsArray.includes(targetCurrency)
-      ? this.HistoricalUnitsArray.push(targetCurrency)
+    !this.historicalUnitsArray.includes(targetCurrency)
+      ? this.historicalUnitsArray.push(targetCurrency)
       : null;
-    !this.HistoricalUnitsArray.includes(baseCurrency)
-      ? this.HistoricalUnitsArray.push(baseCurrency)
+    !this.historicalUnitsArray.includes(baseCurrency)
+      ? this.historicalUnitsArray.push(baseCurrency)
       : null;
   }
 
-  /**
-   * @todo get historical view
-   */
-  getHistoricalView() {
-    this.currencyConverterService.getHistoricalView().subscribe((res: any) => {
-      this.tableDataSource = res.rates;
-      // console.log( this.tableDataSource);
-    });
-  }
 
   currencyChange( value:any){
     value== "1"? this.inputValueOne = "" : this.inputValueTwo= "";
