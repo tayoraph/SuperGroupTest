@@ -12,9 +12,6 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  &nbsp;
-  &nbsp;
-  &nbsp;
   <mat-form-field >
     <mat-label>length</mat-label>
     <input matInput  type="number" (keyup)="convertLength('1')" [(ngModel)]="inputValueOne" [disabled]="disabled">
@@ -30,9 +27,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  &nbsp;
-  &nbsp;
-  &nbsp;
+
   <mat-form-field >
     <mat-label>length</mat-label>
     <input matInput  type="number" (keyup)="convertLength('2')" [(ngModel)]="inputValueTwo" [disabled]="disabled">
@@ -43,9 +38,3 @@
   <p class="resultData" ><span class="result"> Result : </span>{{ inputValueOne }} {{ lenghtDataOne }} =  {{ inputValueTwo }} {{ lenghtDataTwo }}</p>
   </ng-container>
 <ng-container *ngIf="lengthVal">
- 
-<!-- <mat-grid-list cols="6" class="result">
-  <mat-grid-tile>{{inputValueOne}} {{lenghtDataOne}} </mat-grid-tile> =
-  <mat-grid-tile>{{inputValueTwo}} {{lenghtDataTwo}} </mat-grid-tile>
-  </mat-grid-list>
-</ng-container> -->
