@@ -7,11 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Super Group';
-
-  toggle(event: any){
-    console.log(event)
-    // run your action here 
-    // e.g call a service to edit or delete or add to a list
-    // console.log(newItem);
-  }
 }

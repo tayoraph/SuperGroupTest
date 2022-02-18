@@ -23,7 +23,8 @@ export class CurrencyConverterService {
       */
 
      getHistoricalView(historicalUnitsArray:Array<string>) {
-       console.log(historicalUnitsArray)
+     
+       debugger
       let connect = environment.baseUrl +  environment.currentDate + environment.accessKey +"&symbols="+historicalUnitsArray;
       return this.baseHttp.get(connect);
     }

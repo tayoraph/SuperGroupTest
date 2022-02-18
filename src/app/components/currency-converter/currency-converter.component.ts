@@ -32,9 +32,6 @@ export class CurrencyConverterComponent {
     this.tableDataSource = [];
   }
 
-  ngAfterViewInit(){
-    // this.updateHistoricalUnit.getHistoricalView();
-  }
 
   getAllRates() {
     this.currencyConverterService.getCurrencyRates().subscribe((res: any) => {
@@ -50,6 +47,7 @@ export class CurrencyConverterComponent {
    */
   convertCurrency(value: string) {
     if (this.currencyOne != undefined && this.currencyTwo != undefined) {
+      
       this.saveUnitHistory(this.currencyOne, this.currencyTwo);
       let arg = {
         targetCurrency: value == '1' ? this.currencyTwo : this.currencyOne,
@@ -69,18 +67,14 @@ export class CurrencyConverterComponent {
   }
 
   saveUnitHistory(targetCurrency: string, baseCurrency: string) {
-    !this.historicalUnitsArray.includes(targetCurrency)
-      ? this.historicalUnitsArray.push(targetCurrency)
-      : null;
-    !this.historicalUnitsArray.includes(baseCurrency)
-      ? this.historicalUnitsArray.push(baseCurrency)
-      : null;
+    this.historicalUnitsArray = []; 
+      this.historicalUnitsArray.push(targetCurrency);
+      this.historicalUnitsArray.push(baseCurrency);
+      this.updateHistoricalUnit.historicalUnitsArray = this.historicalUnitsArray;
   }
 
 
-  // currencyChange( value:any){
-  //   value== "1"? this.inputValueOne = "" : this.inputValueTwo= "";
-  // }
+
   currencyChange( value:any){
     this.inputValueOne = "";
     this.inputValueTwo= "";

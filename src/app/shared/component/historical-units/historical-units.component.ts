@@ -17,7 +17,6 @@ export class HistoricalUnitsComponent implements OnInit {
   @Input() historicalUnitsArray : Array<string> =[];
   constructor(public currencyConverterService: CurrencyConverterService) {
     this.tableDataSource = [];
-    // this.getHistoricalView();
    }
 
   ngOnInit(): void {
